@@ -245,13 +245,19 @@ section{
     align-items:flex-start;
     padding-top:80px;
     transition:.5s ease;
-    z-index:2000;
+    z-index:-1;
+    opacity:0;
+    pointer-events:none;
 }
 
 .modal.active{
     top:0;
+    z-index:2000;
+    opacity:1;
+    pointer-events:auto;
 }
 
+/* MODAL BOX */
 .modal-content{
     width:90%;
     max-width:800px;
@@ -259,15 +265,38 @@ section{
     border:1px solid var(--border);
     border-radius:16px;
     padding:2rem;
+
+    max-height:80vh;          /* IMPORTANT */
+    display:flex;
+    flex-direction:column;
 }
 
+/* HEADER STAYS FIXED */
+.modal-content h2{
+    margin-bottom:1rem;
+}
+
+/* SCROLL AREA */
 .modal-grid{
     display:flex;
     flex-wrap:wrap;
     gap:.5rem;
-    margin-top:1rem;
+
+    overflow-y:auto;          /* IMPORTANT */
+    padding-right:5px;
+
+    flex:1;                   /* takes remaining space */
 }
 
+/* optional smooth scrollbar */
+.modal-grid::-webkit-scrollbar{
+    width:6px;
+}
+
+.modal-grid::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:10px;
+}
 .close{
     float:right;
     cursor:pointer;
