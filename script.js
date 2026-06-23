@@ -12,9 +12,22 @@ window.onclick=function(e){
     }
 }
 
-    function scrollToTop(){
+   <script>
+function scrollToTop(){
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
 }
+
+/* SHOW BUTTON ONLY AFTER SCROLL */
+window.addEventListener("scroll", function(){
+    const btn = document.querySelector(".top-btn");
+
+    if(window.scrollY > 300){
+        btn.classList.add("show");
+    } else {
+        btn.classList.remove("show");
+    }
+});
+</script>
