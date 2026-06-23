@@ -16,9 +16,9 @@
     --dark:#020617;
     --card:#111827;
     --border:rgba(255,255,255,.08);
-    --shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
+/* BASE */
 *{
     margin:0;
     padding:0;
@@ -103,6 +103,16 @@ nav a:hover{
     margin:1.5rem 0;
 }
 
+/* SECTIONS */
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:2.5rem;
+}
+
 /* BUTTONS */
 .btn{
     padding:12px 22px;
@@ -122,16 +132,6 @@ nav a:hover{
     margin-left:1rem;
 }
 
-/* SECTIONS */
-section{
-    padding:90px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:2.5rem;
-}
-
 /* ABOUT */
 .about-wrapper{
     display:grid;
@@ -140,8 +140,17 @@ section{
     align-items:center;
 }
 
+.about-text{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:2rem;
+    border-radius:16px;
+}
+
 .about-img img{
     width:100%;
+    max-height:360px;
+    object-fit:cover;
     border-radius:16px;
     border:1px solid var(--border);
 }
@@ -151,25 +160,24 @@ section{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:3rem;
+    align-items:flex-start;
 }
 
-.skills-img img{
-    width:100%;
+.skills-visual{
+    background:linear-gradient(135deg,#1e3a8a,#0ea5e9);
     border-radius:16px;
-    border:1px solid var(--border);
+    padding:2rem;
+    text-align:center;
+    min-height:300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .skills-list{
     display:flex;
     flex-wrap:wrap;
     gap:.5rem;
-    max-height:260px;
-    overflow:hidden;
-    transition:.4s;
-}
-
-.skills-list.expanded{
-    max-height:3000px;
 }
 
 .skill{
@@ -190,7 +198,7 @@ section{
     cursor:pointer;
 }
 
-/* PROJECTS */
+/* SERVICES */
 .projects{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -204,22 +212,8 @@ section{
     border:1px solid var(--border);
 }
 
-.project h3{
-    margin-bottom:1rem;
-}
-
 .project p{
     color:var(--gray);
-}
-
-.tech span{
-    display:inline-block;
-    background:rgba(59,130,246,.15);
-    color:#60a5fa;
-    padding:5px 10px;
-    border-radius:20px;
-    margin-top:10px;
-    margin-right:5px;
 }
 
 /* CONTACT */
@@ -238,6 +232,49 @@ section{
     text-decoration:none;
 }
 
+/* ===== SLIDING MODAL (TOP DOWN) ===== */
+.modal{
+    position:fixed;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.85);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:80px;
+    transition:.5s ease;
+    z-index:2000;
+}
+
+.modal.active{
+    top:0;
+}
+
+.modal-content{
+    width:90%;
+    max-width:800px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:2rem;
+}
+
+.modal-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    margin-top:1rem;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+    font-size:1.5rem;
+    color:var(--gray);
+}
+
 /* RESPONSIVE */
 @media(max-width:768px){
     .about-wrapper,
@@ -247,10 +284,6 @@ section{
 
     .hero h1{
         font-size:2.3rem;
-    }
-
-    nav ul{
-        gap:1rem;
     }
 }
 </style>
@@ -265,7 +298,7 @@ section{
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -275,10 +308,10 @@ section{
 <section class="hero">
     <div class="container">
         <h2>Integration Engineer • Full-Stack Developer</h2>
-        <h1>Building Secure & Scalable Digital Systems</h1>
-        <p>Web, Mobile, Cloud, APIs, and Enterprise Integration Solutions.</p>
+        <h1>Building Secure & Scalable Systems</h1>
+        <p>Web, APIs, Cloud, Cybersecurity & Business Solutions</p>
 
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#services" class="btn btn-primary">Services</a>
         <a href="#contact" class="btn btn-outline">Contact</a>
     </div>
 </section>
@@ -293,19 +326,18 @@ section{
 
         <div class="about-wrapper">
 
-            <div>
+            <div class="about-text">
                 <p>
-                    I'm Kelvin, an Integration Engineer and Full-Stack Developer
-                    specializing in .NET, React, APIs, cloud systems, and enterprise integrations.
-                    I build secure and scalable digital solutions that connect systems and users efficiently.
+                    I'm Kelvin, a Full-Stack Developer and Integration Engineer
+                    specializing in scalable systems, APIs, cloud solutions, and secure applications.
                     <br><br>
-                    I also have strong experience in customer service, retail management,
-                    client handling, and professional driving, combining technical and real-world business skills.
+                    I also bring experience in customer service, retail management,
+                    client handling, and professional driving.
                 </p>
             </div>
 
             <div class="about-img">
-                <img src="https://images.stockcake.com/public/6/f/0/6f03b0cb-f95f-4622-92d9-fcde9f6573b8_large/coding-laptop-display-stockcake.jpg" alt="About Kelvin">
+                <img src="https://images.stockcake.com/public/6/f/0/6f03b0cb-f95f-4622-92d9-fcde9f6573b8_large/coding-laptop-display-stockcake.jpg">
             </div>
 
         </div>
@@ -323,53 +355,29 @@ section{
 
         <div class="skills-wrapper">
 
-            <div class="skills-img">
-                <img src="https://images.stockcake.com/public/6/f/0/6f03b0cb-f95f-4622-92d9-fcde9f6573b8_large/coding-laptop-display-stockcake.jpg">
+            <div class="skills-visual">
+                <h3>Developer Mindset</h3>
+                <p>Clean architecture, scalable systems, secure APIs.</p>
             </div>
 
             <div>
 
-                <div id="skillsList" class="skills-list">
-
-                    <div class="skill">Linux Server</div>
-                    <div class="skill">DNS Tunneling</div>
-                    <div class="skill">ASP.NET MVC</div>
-                    <div class="skill">ASP.NET Razor</div>
-                    <div class="skill">.NET Core</div>
-                    <div class="skill">DNS Management</div>
-                    <div class="skill">Python</div>
-                    <div class="skill">Mobile App Development</div>
-                    <div class="skill">Cloud Computing IaaS</div>
-                    <div class="skill">C# in .NET</div>
-                    <div class="skill">ASP.NET Web API</div>
-                    <div class="skill">Testing Process</div>
-                    <div class="skill">Postman API</div>
-                    <div class="skill">PHP</div>
-                    <div class="skill">phpMyAdmin</div>
-                    <div class="skill">VAPT</div>
-                    <div class="skill">AI</div>
-                    <div class="skill">SDLC</div>
-                    <div class="skill">Google Search Console</div>
-                    <div class="skill">API Development</div>
-                    <div class="skill">Full-Stack Development</div>
+                <div class="skills-list">
+                    <div class="skill">ASP.NET Core</div>
                     <div class="skill">React.js</div>
+                    <div class="skill">Python</div>
                     <div class="skill">JavaScript</div>
-                    <div class="skill">CSS</div>
-                    <div class="skill">REST APIs</div>
+                    <div class="skill">Cloud Computing</div>
+                    <div class="skill">API Development</div>
                     <div class="skill">SEO</div>
-                    <div class="skill">Cloud Security</div>
-                    <div class="skill">GCP</div>
-                    <div class="skill">PostgreSQL</div>
-                    <div class="skill">Networking</div>
+                    <div class="skill">Cybersecurity</div>
                     <div class="skill">Customer Service</div>
                     <div class="skill">Retail Management</div>
                     <div class="skill">Client Handling</div>
-                    <div class="skill">Problem Solving</div>
-                    <div class="skill">Team Collaboration</div>
-
+                    <div class="skill">Driving</div>
                 </div>
 
-                <button class="view-btn" onclick="toggleSkills()">View More Skills</button>
+                <button class="view-btn" onclick="openModal()">View More Skills</button>
 
             </div>
 
@@ -378,32 +386,34 @@ section{
     </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- SERVICES -->
+<section id="services">
     <div class="container">
 
         <div class="section-title">
-            <h2>Featured Projects</h2>
+            <h2>Services</h2>
         </div>
 
         <div class="projects">
 
             <div class="project">
-                <h3>MR BAMS Mobile Car Wash</h3>
-                <p>Business website for customer bookings and service visibility.</p>
-                <div class="tech">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Formspree</span>
-                </div>
-                <p><a href="https://mrbamsmobilecarwash.com" target="_blank" style="color:#60a5fa;">Visit Website</a></p>
+                <h3>Web Development</h3>
+                <p>Modern responsive websites and applications.</p>
             </div>
 
             <div class="project">
-                <h3>Learning Treasury</h3>
-                <p>Educational platform built with WordPress and SEO optimization.</p>
-                <div class="tech">
-                    <span>WordPress</span><span>Elementor</span><span>Yoast SEO</span><span>Custom Code</span>
-                </div>
-                <p><a href="https://learningtreasury.org" target="_blank" style="color:#60a5fa;">Visit Website</a></p>
+                <h3>Cybersecurity</h3>
+                <p>Security testing and best practices (VAPT concepts).</p>
+            </div>
+
+            <div class="project">
+                <h3>Web Content Management</h3>
+                <p>WordPress, SEO, and content optimization.</p>
+            </div>
+
+            <div class="project">
+                <h3>API Integration</h3>
+                <p>Connecting systems and building workflows.</p>
             </div>
 
         </div>
@@ -420,20 +430,55 @@ section{
         </div>
 
         <div class="contact-links">
-            <a href="mailto:kelvinkadzenje@gmail.com">Email</a>
-            <a href="www.linkedin.com/in/kelvinkadzenje">LinkedIn</a>
+            <a href="mailto:kelvin@email.com">Email</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
         </div>
 
     </div>
 </section>
 
-<footer style="text-align:center;padding:20px;color:#94a3b8;">
-    © 2026 Kelvin | Full-Stack Developer
-</footer>
+<!-- SLIDING MODAL -->
+<div id="skillsModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>All Skills</h2>
+
+        <div class="modal-grid">
+
+            <div class="skill">Linux Server</div>
+            <div class="skill">ASP.NET MVC</div>
+            <div class="skill">.NET Core</div>
+            <div class="skill">PHP</div>
+            <div class="skill">PostgreSQL</div>
+            <div class="skill">DNS Management</div>
+            <div class="skill">Google Cloud</div>
+            <div class="skill">REST APIs</div>
+            <div class="skill">Testing Process</div>
+            <div class="skill">Networking</div>
+            <div class="skill">System Integration</div>
+            <div class="skill">AI Basics</div>
+
+        </div>
+
+    </div>
+</div>
 
 <script>
-function toggleSkills(){
-    document.getElementById("skillsList").classList.toggle("expanded");
+function openModal(){
+    document.getElementById("skillsModal").classList.add("active");
+}
+
+function closeModal(){
+    document.getElementById("skillsModal").classList.remove("active");
+}
+
+window.onclick=function(e){
+    if(e.target.id==="skillsModal"){
+        closeModal();
+    }
 }
 </script>
 
