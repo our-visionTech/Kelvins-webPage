@@ -216,20 +216,37 @@ section{
     color:var(--gray);
 }
 
-/* CONTACT */
-.contact-links{
-    display:flex;
-    justify-content:center;
-    gap:1rem;
-    flex-wrap:wrap;
+/* FOOTER */
+.footer{
+    background:#0b1220;
+    padding:60px 0 30px;
+    position:relative;
+    border-top:1px solid var(--border);
 }
 
-.contact-links a{
+/* SCROLL TO TOP BUTTON */
+.top-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+
+    width:50px;
+    height:50px;
+    border-radius:50%;
+
     background:var(--primary);
-    padding:10px 18px;
     color:white;
-    border-radius:10px;
-    text-decoration:none;
+    border:none;
+    cursor:pointer;
+
+    font-size:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.4);
+
+    transition:.3s ease;
+}
+
+.top-btn:hover{
+    transform:translateY(-3px);
 }
 
 /* ===== SLIDING MODAL (TOP DOWN) ===== */
@@ -478,8 +495,9 @@ section{
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- FOOTER / CONTACT -->
+<footer id="contact" class="footer">
+
     <div class="container">
 
         <div class="section-title">
@@ -487,13 +505,20 @@ section{
         </div>
 
         <div class="contact-links">
-            <a href="mailto:kelvin@email.com">Email</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
+            <a href="mailto:kelvinkadzenje@gmail.com">Email</a>
+            <a href="www.linkedin.com/in/kelvinkadzenje">LinkedIn</a>
         </div>
 
+        <p style="text-align:center; margin-top:20px; color:var(--gray);">
+            © 2026 Kelvin | Integration Engineer & Full-Stack Developer
+        </p>
+
     </div>
-</section>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button onclick="scrollToTop()" class="top-btn">↑</button>
+
+</footer>
 
 <!-- SLIDING MODAL -->
 <div id="skillsModal" class="modal">
@@ -609,6 +634,13 @@ window.onclick=function(e){
     if(e.target.id==="skillsModal"){
         closeModal();
     }
+}
+
+    function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 </script>
 
