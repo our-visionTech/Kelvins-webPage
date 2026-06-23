@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kelvin | Integration Engineer & Full-Stack Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,10 +12,8 @@
 :root{
     --primary:#3b82f6;
     --secondary:#e2e8f0;
-    --accent:#38bdf8;
-    --light:#0f172a;
-    --dark:#020617;
     --gray:#94a3b8;
+    --dark:#020617;
     --card:#111827;
     --border:rgba(255,255,255,.08);
     --shadow:0 10px 30px rgba(0,0,0,.35);
@@ -25,10 +24,6 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Inter',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -43,6 +38,7 @@ body{
     margin:auto;
 }
 
+/* NAV */
 nav{
     position:fixed;
     top:0;
@@ -73,15 +69,15 @@ nav ul{
 }
 
 nav a{
-    text-decoration:none;
     color:var(--secondary);
-    transition:.3s;
+    text-decoration:none;
 }
 
 nav a:hover{
     color:var(--primary);
 }
 
+/* HERO */
 .hero{
     min-height:100vh;
     display:flex;
@@ -92,44 +88,32 @@ nav a:hover{
     #020617;
 }
 
-.hero-content{
-    max-width:750px;
+.hero h1{
+    font-size:3.5rem;
+    line-height:1.1;
 }
 
 .hero h2{
     color:var(--primary);
     margin-bottom:1rem;
-    font-size:1.2rem;
-}
-
-.hero h1{
-    font-size:4rem;
-    line-height:1.1;
-    margin-bottom:1.5rem;
 }
 
 .hero p{
     color:var(--gray);
-    font-size:1.1rem;
-    margin-bottom:2rem;
+    margin:1.5rem 0;
 }
 
+/* BUTTONS */
 .btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:12px;
+    padding:12px 22px;
+    border-radius:10px;
     text-decoration:none;
     font-weight:600;
-    transition:.3s;
 }
 
 .btn-primary{
     background:var(--primary);
     color:white;
-}
-
-.btn-primary:hover{
-    background:#2563eb;
 }
 
 .btn-outline{
@@ -138,74 +122,86 @@ nav a:hover{
     margin-left:1rem;
 }
 
-.btn-outline:hover{
-    background:var(--primary);
-    color:white;
-}
-
+/* SECTIONS */
 section{
-    padding:100px 0;
+    padding:90px 0;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:3rem;
+    margin-bottom:2.5rem;
 }
 
-.section-title h2{
-    font-size:2.5rem;
-    margin-bottom:.5rem;
-}
-
-.section-title p{
-    color:var(--gray);
-}
-
-.about-card,
-.skill,
-.project,
-.service{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    box-shadow:var(--shadow);
-}
-
-.about-card{
-    padding:2rem;
-}
-
-.skills-grid{
+/* ABOUT */
+.about-wrapper{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:1rem;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:center;
+}
+
+.about-img img{
+    width:100%;
+    border-radius:16px;
+    border:1px solid var(--border);
+}
+
+/* SKILLS */
+.skills-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+}
+
+.skills-img img{
+    width:100%;
+    border-radius:16px;
+    border:1px solid var(--border);
+}
+
+.skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    max-height:260px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.skills-list.expanded{
+    max-height:3000px;
 }
 
 .skill{
-    padding:1rem;
-    text-align:center;
-    font-weight:600;
-    transition:.3s;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:.6rem 1rem;
+    border-radius:30px;
+    font-size:.9rem;
 }
 
-.skill:hover{
-    transform:translateY(-5px);
-    border-color:var(--primary);
+.view-btn{
+    margin-top:1rem;
+    padding:10px 18px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
 }
 
+/* PROJECTS */
 .projects{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:2rem;
 }
 
 .project{
+    background:var(--card);
     padding:2rem;
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-8px);
+    border-radius:16px;
+    border:1px solid var(--border);
 }
 
 .project h3{
@@ -216,93 +212,45 @@ section{
     color:var(--gray);
 }
 
-.tech{
-    margin-top:1rem;
-    display:flex;
-    flex-wrap:wrap;
-    gap:.5rem;
-}
-
 .tech span{
+    display:inline-block;
     background:rgba(59,130,246,.15);
     color:#60a5fa;
-    padding:6px 12px;
-    border-radius:30px;
-    font-size:.85rem;
+    padding:5px 10px;
+    border-radius:20px;
+    margin-top:10px;
+    margin-right:5px;
 }
 
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:1.5rem;
-}
-
-.service{
-    padding:2rem;
-    text-align:center;
-}
-
-.service h3{
-    margin-bottom:1rem;
-    color:var(--primary);
-}
-
-.service p{
-    color:var(--gray);
-}
-
-.contact{
-    text-align:center;
-}
-
+/* CONTACT */
 .contact-links{
-    margin-top:2rem;
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
     gap:1rem;
+    flex-wrap:wrap;
 }
 
 .contact-links a{
-    text-decoration:none;
-    color:white;
     background:var(--primary);
-    padding:12px 20px;
+    padding:10px 18px;
+    color:white;
     border-radius:10px;
-    transition:.3s;
+    text-decoration:none;
 }
 
-.contact-links a:hover{
-    background:#2563eb;
-}
-
-footer{
-    text-align:center;
-    padding:2rem;
-    border-top:1px solid var(--border);
-    color:var(--gray);
-}
-
-.highlight{
-    color:var(--primary);
-}
-
+/* RESPONSIVE */
 @media(max-width:768px){
+    .about-wrapper,
+    .skills-wrapper{
+        grid-template-columns:1fr;
+    }
 
     .hero h1{
-        font-size:2.8rem;
+        font-size:2.3rem;
     }
 
     nav ul{
         gap:1rem;
-        font-size:.9rem;
-    }
-
-    .btn-outline{
-        margin-left:0;
-        margin-top:1rem;
-        display:block;
-        width:max-content;
     }
 }
 </style>
@@ -310,172 +258,152 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <nav>
     <div class="container nav-container">
         <div class="logo">Kelvin</div>
-
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
     <div class="container">
-        <div class="hero-content">
+        <h2>Integration Engineer • Full-Stack Developer</h2>
+        <h1>Building Secure & Scalable Digital Systems</h1>
+        <p>Web, Mobile, Cloud, APIs, and Enterprise Integration Solutions.</p>
 
-            <h2>Integration Engineer • Full-Stack Developer</h2>
-
-            <h1>
-                Building Secure,
-                <span class="highlight">Scalable</span> &
-                Connected Digital Solutions
-            </h1>
-
-            <p>
-                Experienced in .NET, React, Cloud Infrastructure, API Development,
-                Cybersecurity, Mobile Applications, and Enterprise Integrations.
-                Delivering reliable software solutions while maintaining strong
-                client relationships and customer-focused service.
-            </p>
-
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-
-        </div>
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
     </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
     <div class="container">
 
         <div class="section-title">
             <h2>About Me</h2>
-            <p>Who I am and what I do</p>
         </div>
 
-        <div class="about-card">
-            <p>
-                I'm <strong>Kelvin</strong>, an Integration Engineer and Full-Stack Developer
-                specializing in secure, scalable web, mobile, and cloud applications.
-                My expertise spans .NET, React, React Native, Python, PHP, API integrations,
-                cloud infrastructure, cybersecurity, and enterprise systems.
+        <div class="about-wrapper">
 
-                Beyond technology, I bring experience in client handling,
-                customer service, retail management, professional driving,
-                team collaboration, and business operations—allowing me to
-                combine technical excellence with strong interpersonal skills.
-            </p>
+            <div>
+                <p>
+                    I'm Kelvin, an Integration Engineer and Full-Stack Developer
+                    specializing in .NET, React, APIs, cloud systems, and enterprise integrations.
+                    I build secure and scalable digital solutions that connect systems and users efficiently.
+                    <br><br>
+                    I also have strong experience in customer service, retail management,
+                    client handling, and professional driving, combining technical and real-world business skills.
+                </p>
+            </div>
+
+            <div class="about-img">
+                <img src="https://images.stockcake.com/public/6/f/0/6f03b0cb-f95f-4622-92d9-fcde9f6573b8_large/coding-laptop-display-stockcake.jpg" alt="About Kelvin">
+            </div>
+
         </div>
 
     </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
     <div class="container">
 
         <div class="section-title">
-            <h2>Technical & Professional Skills</h2>
-            <p>Technologies and strengths I bring to every project</p>
+            <h2>Skills</h2>
         </div>
 
-        <div class="skills-grid">
+        <div class="skills-wrapper">
 
-            <div class="skill">ASP.NET Core</div>
-            <div class="skill">ASP.NET MVC</div>
-            <div class="skill">C#</div>
-            <div class="skill">React.js</div>
-            <div class="skill">React Native</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Python</div>
-            <div class="skill">PHP</div>
-            <div class="skill">REST APIs</div>
-            <div class="skill">PostgreSQL</div>
-            <div class="skill">Linux Servers</div>
-            <div class="skill">Cloud Computing</div>
-            <div class="skill">Google Cloud Platform</div>
-            <div class="skill">Cloud Security</div>
-            <div class="skill">VAPT</div>
-            <div class="skill">DNS Management</div>
-            <div class="skill">API Integration</div>
-            <div class="skill">SEO</div>
-            <div class="skill">Shopify</div>
-            <div class="skill">Customer Service</div>
-            <div class="skill">Client Handling</div>
-            <div class="skill">Retail Management</div>
-            <div class="skill">Professional Driving</div>
-            <div class="skill">Team Collaboration</div>
-            <div class="skill">Problem Solving</div>
+            <div class="skills-img">
+                <img src="https://images.stockcake.com/public/6/f/0/6f03b0cb-f95f-4622-92d9-fcde9f6573b8_large/coding-laptop-display-stockcake.jpg">
+            </div>
+
+            <div>
+
+                <div id="skillsList" class="skills-list">
+
+                    <div class="skill">Linux Server</div>
+                    <div class="skill">DNS Tunneling</div>
+                    <div class="skill">ASP.NET MVC</div>
+                    <div class="skill">ASP.NET Razor</div>
+                    <div class="skill">.NET Core</div>
+                    <div class="skill">DNS Management</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Mobile App Development</div>
+                    <div class="skill">Cloud Computing IaaS</div>
+                    <div class="skill">C# in .NET</div>
+                    <div class="skill">ASP.NET Web API</div>
+                    <div class="skill">Testing Process</div>
+                    <div class="skill">Postman API</div>
+                    <div class="skill">PHP</div>
+                    <div class="skill">phpMyAdmin</div>
+                    <div class="skill">VAPT</div>
+                    <div class="skill">AI</div>
+                    <div class="skill">SDLC</div>
+                    <div class="skill">Google Search Console</div>
+                    <div class="skill">API Development</div>
+                    <div class="skill">Full-Stack Development</div>
+                    <div class="skill">React.js</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">CSS</div>
+                    <div class="skill">REST APIs</div>
+                    <div class="skill">SEO</div>
+                    <div class="skill">Cloud Security</div>
+                    <div class="skill">GCP</div>
+                    <div class="skill">PostgreSQL</div>
+                    <div class="skill">Networking</div>
+                    <div class="skill">Customer Service</div>
+                    <div class="skill">Retail Management</div>
+                    <div class="skill">Client Handling</div>
+                    <div class="skill">Problem Solving</div>
+                    <div class="skill">Team Collaboration</div>
+
+                </div>
+
+                <button class="view-btn" onclick="toggleSkills()">View More Skills</button>
+
+            </div>
 
         </div>
 
     </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
     <div class="container">
 
         <div class="section-title">
             <h2>Featured Projects</h2>
-            <p>Examples of solutions I've delivered</p>
         </div>
 
         <div class="projects">
 
             <div class="project">
-    <h3>MR BAMS Mobile Car Wash</h3>
+                <h3>MR BAMS Mobile Car Wash</h3>
+                <p>Business website for customer bookings and service visibility.</p>
+                <div class="tech">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Formspree</span>
+                </div>
+                <p><a href="https://mrbamsmobilecarwash.com" target="_blank" style="color:#60a5fa;">Visit Website</a></p>
+            </div>
 
-    <p>
-        Designed and developed a professional mobile car wash website focused on
-        showcasing services, increasing customer engagement, generating leads,
-        and providing a seamless contact experience across desktop and mobile devices.
-    </p>
-
-    <div class="tech">
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Formspree</span>
-        <span>Responsive Design</span>
-        <span>SEO</span>
-    </div>
-
-    <p style="margin-top:15px;">
-        🌐 <a href="https://mrbamsmobilecarwash.com" target="_blank" style="color:#60a5fa;">
-            Visit Website
-        </a>
-    </p>
-</div>
-
-<div class="project">
-    <h3>Learning Treasury</h3>
-
-    <p>
-        Developed and customized an educational platform that provides digital
-        learning resources and a user-friendly experience for students, educators,
-        and parents. Focused on content structure, performance optimization,
-        search engine visibility, and custom functionality.
-    </p>
-
-    <div class="tech">
-        <span>WordPress</span>
-        <span>Elementor</span>
-        <span>Yoast SEO</span>
-        <span>Custom Code</span>
-        <span>Responsive Design</span>
-        <span>Content Management</span>
-    </div>
-
-    <p style="margin-top:15px;">
-        🌐 <a href="https://learningtreasury.org" target="_blank" style="color:#60a5fa;">
-            Visit Website
-        </a>
-    </p>
-</div>
+            <div class="project">
+                <h3>Learning Treasury</h3>
+                <p>Educational platform built with WordPress and SEO optimization.</p>
+                <div class="tech">
+                    <span>WordPress</span><span>Elementor</span><span>Yoast SEO</span><span>Custom Code</span>
+                </div>
+                <p><a href="https://learningtreasury.org" target="_blank" style="color:#60a5fa;">Visit Website</a></p>
             </div>
 
         </div>
@@ -483,62 +411,12 @@ footer{
     </div>
 </section>
 
-<section id="services">
+<!-- CONTACT -->
+<section id="contact">
     <div class="container">
 
         <div class="section-title">
-            <h2>Services</h2>
-            <p>How I can help your business</p>
-        </div>
-
-        <div class="services">
-
-            <div class="service">
-                <h3>Full-Stack Development</h3>
-                <p>
-                    Building modern web applications using .NET, React,
-                    and scalable architectures.
-                </p>
-            </div>
-
-            <div class="service">
-                <h3>API & Integrations</h3>
-                <p>
-                    Connecting systems, automating workflows,
-                    and streamlining business processes.
-                </p>
-            </div>
-
-            <div class="service">
-                <h3>Cloud & Infrastructure</h3>
-                <p>
-                    Deployment, hosting, security, monitoring,
-                    and cloud optimization.
-                </p>
-            </div>
-
-            <div class="service">
-                <h3>Cybersecurity</h3>
-                <p>
-                    Security assessments, vulnerability testing,
-                    and secure application development.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container contact">
-
-        <div class="section-title">
-            <h2>Let's Connect</h2>
-            <p>
-                Available for freelance projects, consulting,
-                collaborations, and full-time opportunities.
-            </p>
+            <h2>Contact</h2>
         </div>
 
         <div class="contact-links">
@@ -549,9 +427,15 @@ footer{
     </div>
 </section>
 
-<footer>
-    © 2026 Kelvin | Integration Engineer & Full-Stack Developer
+<footer style="text-align:center;padding:20px;color:#94a3b8;">
+    © 2026 Kelvin | Full-Stack Developer
 </footer>
+
+<script>
+function toggleSkills(){
+    document.getElementById("skillsList").classList.toggle("expanded");
+}
+</script>
 
 </body>
 </html>
