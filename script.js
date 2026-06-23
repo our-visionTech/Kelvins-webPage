@@ -12,7 +12,6 @@ window.onclick=function(e){
     }
 }
 
-   <script>
 function scrollToTop(){
     window.scrollTo({
         top:0,
@@ -30,4 +29,3 @@ window.addEventListener("scroll", function(){
         btn.classList.remove("show");
     }
 });
-</script>
