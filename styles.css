@@ -248,13 +248,18 @@ section{
     font-size:20px;
     box-shadow:0 10px 20px rgba(0,0,0,.4);
 
+    opacity:0;              /* HIDDEN INITIALLY */
+    visibility:hidden;
+    transform:translateY(20px);
     transition:.3s ease;
 }
 
-.top-btn:hover{
-    transform:translateY(-3px);
+/* SHOW STATE */
+.top-btn.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
-
 /* ===== SLIDING MODAL (TOP DOWN) ===== */
 .modal{
     position:fixed;
