@@ -105,7 +105,81 @@ section{
     text-align:center;
     margin-bottom:2.5rem;
 }
+/* Featured Projects Section */
+.projects-section {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Subtle contrast background color */
+}
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4a5568;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #1a202c;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    background-color: #edf2f7;
+    color: #2d3748;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.btn-link {
+    color: #0070f3; /* Adjust to match your theme's primary interactive color */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
 /* BUTTONS */
 .btn{
     padding:12px 22px;
