@@ -107,8 +107,8 @@ section{
 }
 /* Featured Projects Section */
 .projects-section {
-    padding: 80px 0;
-    background-color: #f9f9f9; /* Subtle contrast background color */
+    padding:90px 0;
+     scroll-margin-top: 80px;
 }
 
 .projects-grid {
