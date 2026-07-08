@@ -30,22 +30,33 @@ window.addEventListener("scroll", function(){
     }
 });
 
-const sections = document.querySelectorAll("section");
+/* REVEAL ANIMATIONS*/
+const sections = document.querySelectorAll("section, footer");
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+
         const items = entry.target.querySelectorAll(
             ".reveal-left, .reveal-right, .reveal-up"
         );
 
         if (entry.isIntersecting) {
-            items.forEach(item => item.classList.add("reveal-active"));
+
+            items.forEach(item => {
+                item.classList.add("reveal-active");
+            });
+
         } else {
-            items.forEach(item => item.classList.remove("reveal-active"));
+
+            items.forEach(item => {
+                item.classList.remove("reveal-active");
+            });
+
         }
+
     });
 }, {
-    threshold: 0.35
+    threshold: 0.2
 });
 
 sections.forEach(section => observer.observe(section));
