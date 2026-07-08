@@ -34,16 +34,22 @@ const reveals = document.querySelectorAll(
     ".reveal-left, .reveal-right, .reveal-up"
 );
 
+/*Reveal Script */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
+            // Animate in
             entry.target.classList.add("reveal-active");
+        } else {
+            // Reset animation when element leaves the viewport
+            entry.target.classList.remove("reveal-active");
         }
 
     });
-},{
-    threshold:0.2
+}, {
+    threshold: 0.2
 });
 
+reveals.forEach(el => observer.observe(el));
 reveals.forEach(el => observer.observe(el));
