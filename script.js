@@ -30,26 +30,22 @@ window.addEventListener("scroll", function(){
     }
 });
 
-const reveals = document.querySelectorAll(
-    ".reveal-left, .reveal-right, .reveal-up"
-);
+const sections = document.querySelectorAll("section");
 
-/*Reveal Script */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+        const items = entry.target.querySelectorAll(
+            ".reveal-left, .reveal-right, .reveal-up"
+        );
 
         if (entry.isIntersecting) {
-            // Animate in
-            entry.target.classList.add("reveal-active");
+            items.forEach(item => item.classList.add("reveal-active"));
         } else {
-            // Reset animation when element leaves the viewport
-            entry.target.classList.remove("reveal-active");
+            items.forEach(item => item.classList.remove("reveal-active"));
         }
-
     });
 }, {
-    threshold: 0.2
+    threshold: 0.35
 });
 
-reveals.forEach(el => observer.observe(el));
-reveals.forEach(el => observer.observe(el));
+sections.forEach(section => observer.observe(section));
