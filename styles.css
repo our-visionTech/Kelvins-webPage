@@ -509,27 +509,26 @@ section{
     border-radius: 10px;
 }
 
-/* Individual category card */
 .skill-category {
-    background: #f8f9fa;
+    background: #1e293b; /* Dark slate background */
     padding: 1rem;
     border-radius: 8px;
-    height: fit-content; /* Prevents cards from stretching awkwardly */
+    height: fit-content;
 }
 
 .skill-category h3 {
     margin-top: 0;
     font-size: 1.1rem;
-    color: #333;
+    color: #ffffff;
     border-bottom: 2px solid var(--primary, #007bff);
     padding-bottom: 0.5rem;
     margin-bottom: 0.75rem;
 }
 
-/* Individual skill badge inside category */
 .skill {
     display: inline-block;
-    background: #e9ecef;
+    background: #334155; /* Slightly lighter dark slate */
+    color: #f8fafc;       /* Crisp white text */
     padding: 0.4rem 0.8rem;
     margin: 0.25rem;
     border-radius: 4px;
