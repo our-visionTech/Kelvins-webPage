@@ -247,13 +247,7 @@ section{
     gap:.5rem;
 }
 
-.skill{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:.6rem 1rem;
-    border-radius:30px;
-    font-size:.9rem;
-}
+
 
 .view-btn{
     margin-top:1rem;
