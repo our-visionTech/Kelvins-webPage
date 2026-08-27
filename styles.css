@@ -53,6 +53,11 @@ nav{
     font-weight:800;
     color:var(--primary);
 }
+.logo a {
+    color: inherit;         /* Inherits the parent text color */
+    text-decoration: none;  /* Removes default blue underline */
+    display: inline-block; /* Preserves sizing and click area */
+}
 
 nav ul{
     display:flex;
