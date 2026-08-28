@@ -554,17 +554,42 @@ section{
     cursor: pointer;
 }
 
-/* Sliding Bottom-Up Overlay */
+/* Semi-Transparent Background Overlay (Backdrop) */
+.mobile-menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65); /* Semi-transparent dark overlay */
+    backdrop-filter: blur(6px);       /* Modern glassmorphism blur */
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9998;
+}
+
+/* Active State for Backdrop */
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sliding Bottom-Up Overlay Sheet */
 .mobile-menu-overlay {
     position: fixed;
     bottom: -100%;
     left: 0;
     width: 100%;
-    height: 85vh; /* Covers 85% of screen from bottom */
-    background-color: #0d1117; /* Dark theme background matching dark modern portfolios */
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    height: 80vh; /* Covers 80% of screen height from bottom */
+    background: rgba(13, 17, 23, 0.95); /* Semi-transparent dark sheet */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -574,7 +599,7 @@ section{
     box-sizing: border-box;
 }
 
-/* Active State to Slide Up */
+/* Active State to Slide Up Sheet */
 .mobile-menu-overlay.active {
     bottom: 0;
 }
