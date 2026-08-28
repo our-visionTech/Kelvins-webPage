@@ -685,15 +685,22 @@ section{
     gap: 15px;
 }
 
-/* Static, Small Nav Text */
+/* --- Moving Nav Subtitle Container --- */
 .nav-subtitle {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    overflow: hidden; /* Clips the text as it moves outside the container */
+    width: 180px;     /* Set fixed width for the animation area */
+    position: relative;
+    /* Soft fade mask on left and right edges */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+/* --- Moving Badge & Text Animation --- */
 .nav-subtitle span {
-    color: #8b949e; /* Muted gray tone */
+    display: inline-block;
     font-size: 0.75rem; /* Reduced size */
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -702,6 +709,25 @@ section{
     padding: 3px 8px;
     border-radius: 12px;
     border: 1px solid rgba(88, 166, 255, 0.2);
+    
+    /* Animation settings */
+    will-change: transform;
+    animation: moveLeftToRight 8s linear infinite;
+}
+
+/* Pause moving text on hover */
+.nav-subtitle:hover span {
+    animation-play-state: paused;
+}
+
+/* Continuous movement keyframes */
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* --- Mobile Responsiveness --- */
@@ -714,6 +740,10 @@ section{
         display: block; /* Show hamburger button */
     }
 
+    .nav-subtitle {
+        width: 140px; /* Adjust width for tablets */
+    }
+
     .nav-subtitle span {
         font-size: 0.7rem; /* Slightly smaller on tablets/mobile */
         padding: 2px 6px;
@@ -721,30 +751,11 @@ section{
 }
 
 @media (max-width: 480px) {
-    /* Prevents navbar items from overflowing on small mobile screens */
     .nav-subtitle {
-        max-width: 140px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        width: 110px; /* Compact width for small phone screens */
     }
 
     .nav-subtitle span {
         font-size: 0.65rem;
-    }
-}
-@keyframes moveLeftToRight {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* Hide or adjust marquee width on small mobile screens if space is tight */
-@media (max-width: 480px) {
-    .nav-marquee {
-        width: 140px;
-        font-size: 0.8rem;
     }
 }
