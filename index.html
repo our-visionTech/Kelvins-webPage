@@ -15,17 +15,45 @@
 <nav>
     <div class="container nav-container">
         <div class="logo">
-    <a href="https://our-visiontech.github.io/Kelvins-webPage/">Kelvin</a>
-</div>  
-        <ul>
+            <a href="https://our-visiontech.github.io/Kelvins-webPage/">Kelvin</a>
+        </div>  
+        
+        <!-- Desktop Links -->
+        <ul class="desktop-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Featured Projects</a></li>
             <li><a href="#services">What I Do</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-menu-btn" aria-label="Open Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </nav>
+
+<!-- MOBILE MENU SLIDING OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button class="mobile-menu-close" id="closeMobileMenu">&times;</button>
+    </div>
+    
+    <ul class="mobile-links">
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-link">Featured Projects</a></li>
+        <li><a href="#services" class="mobile-link">What I Do</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+
+    <!-- Image at the bottom of the mobile overlay -->
+    <div class="mobile-menu-footer">
+        <img src="Kelvin.png" alt="Kelvin" class="mobile-menu-img">
+    </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
