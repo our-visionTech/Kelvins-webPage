@@ -677,26 +677,61 @@ section{
         display: block; /* Show hamburger button on mobile */
     }
 }
-/* --- Navigation Marquee Text --- */
-.nav-marquee {
-    overflow: hidden;
+/* --- Nav Bar Layout Adjustments --- */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Static, Small Nav Text */
+.nav-subtitle {
+    display: flex;
+    align-items: center;
     white-space: nowrap;
-    width: 250px; /* Adjust width to fit your layout */
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.nav-marquee span {
-    display: inline-block;
-    color: #58a6ff; /* Accent color */
-    font-size: 0.9rem;
+.nav-subtitle span {
+    color: #8b949e; /* Muted gray tone */
+    font-size: 0.75rem; /* Reduced size */
     font-weight: 500;
-    padding-left: 100%; /* Start off-screen to the right */
-    animation: moveLeftToRight 10s linear infinite;
+    letter-spacing: 0.5px;
+    background: rgba(88, 166, 255, 0.1); /* Subtle badge accent */
+    color: #58a6ff;
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(88, 166, 255, 0.2);
 }
 
-/* Keyframes to animate text from left to right and loop */
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .nav-container .desktop-links {
+        display: none; /* Hide full nav menu on mobile */
+    }
+    
+    .mobile-menu-btn {
+        display: block; /* Show hamburger button */
+    }
+
+    .nav-subtitle span {
+        font-size: 0.7rem; /* Slightly smaller on tablets/mobile */
+        padding: 2px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Prevents navbar items from overflowing on small mobile screens */
+    .nav-subtitle {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-subtitle span {
+        font-size: 0.65rem;
+    }
+}
 @keyframes moveLeftToRight {
     0% {
         transform: translateX(-100%);
