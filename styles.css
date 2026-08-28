@@ -543,3 +543,112 @@ section{
 .footer-bottom p:last-child{
     font-size:.9rem;
 }
+
+/* --- Mobile Menu Base Styles --- */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Sliding Bottom-Up Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 85vh; /* Covers 85% of screen from bottom */
+    background-color: #0d1117; /* Dark theme background matching dark modern portfolios */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: bottom 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Active State to Slide Up */
+.mobile-menu-overlay.active {
+    bottom: 0;
+}
+
+/* Header inside overlay */
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+.mobile-menu-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Links List */
+.mobile-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-links a {
+    color: #e6edf3;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-links a:hover {
+    color: #58a6ff;
+}
+
+/* Footer Image at the bottom */
+.mobile-menu-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #58a6ff;
+}
+
+/* Mobile Responsive Breakpoint */
+@media (max-width: 768px) {
+    .nav-container .desktop-links {
+        display: none; /* Hide default nav list on mobile */
+    }
+    
+    .mobile-menu-btn {
+        display: block; /* Show hamburger button on mobile */
+    }
+}
