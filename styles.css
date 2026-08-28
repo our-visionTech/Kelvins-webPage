@@ -677,3 +677,39 @@ section{
         display: block; /* Show hamburger button on mobile */
     }
 }
+/* --- Navigation Marquee Text --- */
+.nav-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px; /* Adjust width to fit your layout */
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.nav-marquee span {
+    display: inline-block;
+    color: #58a6ff; /* Accent color */
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-left: 100%; /* Start off-screen to the right */
+    animation: moveLeftToRight 10s linear infinite;
+}
+
+/* Keyframes to animate text from left to right and loop */
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Hide or adjust marquee width on small mobile screens if space is tight */
+@media (max-width: 480px) {
+    .nav-marquee {
+        width: 140px;
+        font-size: 0.8rem;
+    }
+}
