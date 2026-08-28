@@ -60,3 +60,29 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(section => observer.observe(section));
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const closeBtn = document.getElementById('closeMobileMenu');
+    const mobileOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    // Open bottom-up menu
+    menuBtn.addEventListener('click', () => {
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Function to close menu
+    const closeMenu = () => {
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close overlay when clicking any link
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
