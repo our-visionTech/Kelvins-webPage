@@ -41,13 +41,6 @@ nav{
     z-index:1000;
 }
 
-.nav-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:1rem 0;
-}
-
 .logo{
     font-size:1.5rem;
     font-weight:800;
@@ -677,85 +670,213 @@ section{
         display: block; /* Show hamburger button on mobile */
     }
 }
-/* --- Nav Bar Layout Adjustments --- */
+```css
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+    padding: 1rem 0;
 }
 
-/* --- Moving Nav Subtitle Container --- */
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MOVING NAV SUBTITLE
+   ========================================================= */
+
 .nav-subtitle {
+    position: relative;
+
+    width: 180px;
+    height: 28px;
+
     display: flex;
     align-items: center;
+
+    overflow: hidden;
     white-space: nowrap;
-    overflow: hidden; /* Clips the text as it moves outside the container */
-    width: 180px;     /* Set fixed width for the animation area */
-    position: relative;
-    /* Soft fade mask on left and right edges */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    flex-shrink: 0;
+
+    /* Smooth fade at both edges */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
 }
 
-/* --- Moving Badge & Text Animation --- */
+
+/* =========================================================
+   MOVING SUBTITLE TEXT
+   ========================================================= */
+
 .nav-subtitle span {
-    display: inline-block;
-    font-size: 0.75rem; /* Reduced size */
+    position: absolute;
+    left: 0;
+
+    display: block;
+    width: max-content;
+
+    padding: 4px 9px;
+
+    font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.5px;
-    background: rgba(88, 166, 255, 0.1); /* Subtle badge accent */
+    line-height: 1;
+
     color: #58a6ff;
-    padding: 3px 8px;
+
+    background: rgba(88, 166, 255, 0.10);
+
+    border: 1px solid rgba(88, 166, 255, 0.20);
     border-radius: 12px;
-    border: 1px solid rgba(88, 166, 255, 0.2);
-    
-    /* Animation settings */
+
     will-change: transform;
-    animation: moveLeftToRight 8s linear infinite;
+
+    animation: navSubtitleMove 6s linear infinite;
 }
 
-/* Pause moving text on hover */
+
+/* =========================================================
+   SUBTITLE ANIMATION
+   ========================================================= */
+
+@keyframes navSubtitleMove {
+
+    /* Start completely outside the left side */
+    0% {
+        transform: translateX(-100%);
+    }
+
+    /* Move completely outside the right side */
+    100% {
+        transform: translateX(180px);
+    }
+}
+
+
+/* Pause animation when hovering */
 .nav-subtitle:hover span {
     animation-play-state: paused;
 }
 
-/* Continuous movement keyframes */
-@keyframes moveLeftToRight {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+
+/* =========================================================
+   DESKTOP NAV LINKS
+   ========================================================= */
+
+.desktop-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
 }
 
-/* --- Mobile Responsiveness --- */
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLETS / MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
-    .nav-container .desktop-links {
-        display: none; /* Hide full nav menu on mobile */
-    }
-    
-    .mobile-menu-btn {
-        display: block; /* Show hamburger button */
+
+    .nav-container {
+        gap: 10px;
     }
 
+    /* Hide desktop navigation */
+    .nav-container .desktop-links {
+        display: none;
+    }
+
+    /* Show mobile menu */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Smaller animation area */
     .nav-subtitle {
-        width: 140px; /* Adjust width for tablets */
+        width: 140px;
+    }
+
+    /* Mobile animation distance */
+    @keyframes navSubtitleMove {
+
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(140px);
+        }
     }
 
     .nav-subtitle span {
-        font-size: 0.7rem; /* Slightly smaller on tablets/mobile */
-        padding: 2px 6px;
+        font-size: 0.7rem;
+        padding: 3px 7px;
     }
 }
 
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 480px) {
+
+    .nav-container {
+        gap: 8px;
+    }
+
     .nav-subtitle {
-        width: 110px; /* Compact width for small phone screens */
+        width: 110px;
+    }
+
+    /* Small-screen animation distance */
+    @keyframes navSubtitleMove {
+
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(110px);
+        }
     }
 
     .nav-subtitle span {
         font-size: 0.65rem;
+        padding: 3px 6px;
     }
 }
