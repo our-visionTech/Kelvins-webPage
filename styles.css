@@ -958,12 +958,14 @@ section{
     visibility: visible;
 }
 
+/* SLIDING CHAT DRAWER */
 .chat-drawer {
     position: fixed;
     top: 0;
-    right: -420px;
+    /* Push fully off-screen (100% of viewport width) when closed */
+    right: -100%;
     width: 400px;
-    max-width: 100%;
+    max-width: 100vw; /* Fits mobile screens perfectly without overflow */
     height: 100%;
     background-color: #0d1117;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -971,11 +973,24 @@ section{
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Smooth transition using transform + right property */
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
+    will-change: right, transform;
 }
 
+/* Slide in when activated */
 .chat-drawer.active {
     right: 0;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .chat-drawer {
+        width: 100vw;
+        right: -100vw; /* Ensures 100% hidden on mobile */
+        border-left: none;
+    }
 }
 
 /* Chat Header */
