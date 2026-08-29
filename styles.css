@@ -670,72 +670,34 @@ section{
         display: block; /* Show hamburger button on mobile */
     }
 }
-```css
 /* =========================================================
-   NAVIGATION
+   NAV CONTAINER FLEXBOX FIX
    ========================================================= */
 
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 15px;
-    padding: 1rem 0;
 }
 
 
 /* =========================================================
-   LOGO
-   ========================================================= */
-
-.logo {
-    flex-shrink: 0;
-}
-
-
-/* =========================================================
-   MOVING NAV SUBTITLE
+   MOVING SUBTITLE CONTAINER & TEXT
    ========================================================= */
 
 .nav-subtitle {
     position: relative;
-
     width: 180px;
-    height: 28px;
-
+    height: 26px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-
-    overflow: hidden;
-    white-space: nowrap;
-    flex-shrink: 0;
-
-    /* Smooth fade at both edges */
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 15%,
-        black 85%,
-        transparent 100%
-    );
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 15%,
-        black 85%,
-        transparent 100%
-    );
 }
-
-
-/* =========================================================
-   MOVING SUBTITLE TEXT
-   ========================================================= */
 
 .nav-subtitle span {
     position: absolute;
     left: 0;
+    white-space: nowrap;
 
     display: block;
     width: max-content;
@@ -748,14 +710,12 @@ section{
     line-height: 1;
 
     color: #58a6ff;
-
     background: rgba(88, 166, 255, 0.10);
 
     border: 1px solid rgba(88, 166, 255, 0.20);
     border-radius: 12px;
 
     will-change: transform;
-
     animation: navSubtitleMove 6s linear infinite;
 }
 
@@ -765,34 +725,47 @@ section{
    ========================================================= */
 
 @keyframes navSubtitleMove {
-
-    /* Start completely outside the left side */
     0% {
         transform: translateX(-100%);
     }
-
-    /* Move completely outside the right side */
     100% {
         transform: translateX(180px);
     }
 }
 
-
-/* Pause animation when hovering */
+/* Pause animation on hover */
 .nav-subtitle:hover span {
     animation-play-state: paused;
 }
 
 
 /* =========================================================
-   DESKTOP NAV LINKS
+   DESKTOP NAV LINKS & MESSAGE BUTTON
    ========================================================= */
 
 .desktop-links {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-left: auto;
+    margin-left: auto; /* Pushes links AND message button to the far right */
+}
+
+.nav-message-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #238636;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.nav-message-btn:hover {
+    background-color: #2ea043;
 }
 
 
@@ -806,7 +779,7 @@ section{
 
 
 /* =========================================================
-   TABLETS / MOBILE
+   TABLETS / MOBILE (max-width: 768px)
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -815,30 +788,37 @@ section{
         gap: 10px;
     }
 
-    /* Hide desktop navigation */
+    /* Hide desktop links, push message button to right */
     .nav-container .desktop-links {
         display: none;
     }
 
-    /* Show mobile menu */
+    .nav-message-btn {
+        margin-left: auto; /* Ensures button stays on the far right on mobile */
+        padding: 5px 9px;
+    }
+
+    .message-btn-text {
+        display: none; /* Shows icon only on mobile screens */
+    }
+
+    /* Show mobile menu toggle */
     .mobile-menu-btn {
         display: block;
     }
 
-    /* Smaller animation area */
+    /* Smaller animation container */
     .nav-subtitle {
-        width: 140px;
+        width: 130px;
+        height: 24px;
     }
 
-    /* Mobile animation distance */
     @keyframes navSubtitleMove {
-
         0% {
             transform: translateX(-100%);
         }
-
         100% {
-            transform: translateX(140px);
+            transform: translateX(130px);
         }
     }
 
@@ -850,7 +830,7 @@ section{
 
 
 /* =========================================================
-   SMALL PHONES
+   SMALL PHONES (max-width: 480px)
    ========================================================= */
 
 @media (max-width: 480px) {
@@ -860,23 +840,21 @@ section{
     }
 
     .nav-subtitle {
-        width: 110px;
+        width: 95px;
+        height: 22px;
     }
 
-    /* Small-screen animation distance */
     @keyframes navSubtitleMove {
-
         0% {
             transform: translateX(-100%);
         }
-
         100% {
-            transform: translateX(110px);
+            transform: translateX(95px);
         }
     }
 
     .nav-subtitle span {
         font-size: 0.65rem;
-        padding: 3px 6px;
+        padding: 2px 6px;
     }
 }
