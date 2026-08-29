@@ -6,6 +6,7 @@
 <title>Kelvin | Integration Engineer & Full-Stack Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,13 +15,16 @@
 <!-- NAV -->
 <nav>
     <div class="container nav-container">
+        <!-- Far Left: Logo -->
         <div class="logo">
             <a href="https://our-visiontech.github.io/Kelvins-webPage/">Kelvin</a>
         </div>  
-       <!-- STATIC NAV SUBTITLE / TEXT -->
+
+        <!-- STATIC / MOVING NAV SUBTITLE -->
         <div class="nav-subtitle">
             <span>Let's Build Now!</span>
         </div>
+
         <!-- Desktop Links -->
         <ul class="desktop-links">
             <li><a href="#about">About</a></li>
@@ -30,14 +34,22 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
+        <!-- Far Right: Leave a Message Button (Opposite the Logo) -->
+        <a href="#contact" class="nav-message-btn" title="Leave a Message" aria-label="Leave a Message">
+            <i class="fas fa-envelope"></i>
+            <span class="message-btn-text">Message</span>
+        </a>
+
         <!-- Mobile Toggle Button -->
         <button class="mobile-menu-btn" aria-label="Open Menu">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 </nav>
+
 <!-- TRANSPARENT BACKDROP OVERLAY -->
 <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
 <!-- MOBILE MENU SLIDING OVERLAY -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
     <div class="mobile-menu-header">
@@ -85,7 +97,7 @@
                     specializing in scalable systems, APIs, cloud solutions, and secure applications.
                     <br><br>
                     I also bring experience in customer service, retail management,
-                    client handling.
+                    and client handling.
                 </p>
             </div>
             <div class="about-img reveal-right">
@@ -155,30 +167,31 @@
                 </div>
             </div>
 
-            <!-- Project 2-->
-<div class="project-card text-left reveal-up">
-    <div class="project-content">
-        <span class="project-tag">Web Ecosystem</span>
-        <h3>learningtreasury.org</h3>
-        <p>
-            An educational resource content management platform built using WordPress and Elementor. Handled full end-to-end deployment including domain mapping, DNS record management, SEO configuration, and Generative Engine Optimization (GEO) alongside custom code enhancements.
-        </p>
-        <div class="project-tech">
-            <span>WordPress</span>
-            <span>Elementor</span>
-            <span>SEO & GEO</span>
-            <span>DNS & Domain Config</span>
-            <span>Deployment</span>
-            <span>Indexing</span>
-            <span>Custome Code</span>
-        </div>
-        <div class="project-links">
-            <a href="https://learningtreasury.org" target="_blank" class="btn-link">Visit Website →</a>
+            <!-- Project 2 -->
+            <div class="project-card text-left reveal-up">
+                <div class="project-content">
+                    <span class="project-tag">Web Ecosystem</span>
+                    <h3>learningtreasury.org</h3>
+                    <p>
+                        An educational resource content management platform built using WordPress and Elementor. Handled full end-to-end deployment including domain mapping, DNS record management, SEO configuration, and Generative Engine Optimization (GEO) alongside custom code enhancements.
+                    </p>
+                    <div class="project-tech">
+                        <span>WordPress</span>
+                        <span>Elementor</span>
+                        <span>SEO & GEO</span>
+                        <span>DNS & Domain Config</span>
+                        <span>Deployment</span>
+                        <span>Indexing</span>
+                        <span>Custom Code</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://learningtreasury.org" target="_blank" class="btn-link">Visit Website →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-    </div>
-</section> <!-- FIXED: Properly closing #projects section -->
+</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -242,13 +255,32 @@
     <div class="container">
         <div class="section-title reveal-up">
             <h2>Let's Connect</h2>
-            <p>Have a project or opportunity? I'd love to hear from you.</p>
+            <p>Have a project or opportunity? Send me a message below.</p>
+        </div>
+
+        <!-- SUPABASE CONTACT FORM -->
+        <div class="contact-form-container reveal-up">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="senderName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="senderEmail" placeholder="Your Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="senderMessage" rows="5" placeholder="Your Message..." required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <p id="formStatus" class="form-status"></p>
+            </form>
         </div>
 
         <div class="contact-links reveal-up">
             <a href="mailto:kelvinkadzenje@gmail.com" target="_blank">
                 <i class="fas fa-envelope"></i>
-                <span>Email</span>
+                <span>Email Direct</span>
             </a>
             <a href="https://www.linkedin.com/in/kelvinkadzenje" target="_blank">
                 <i class="fab fa-linkedin"></i>
@@ -263,12 +295,12 @@
     </div>
 
     <!-- SCROLL TO TOP -->
-    <button onclick="scrollToTop()" class="top-btn">
+    <button onclick="scrollToTop()" class="top-btn" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 </footer>
 
-<!-- SLIDING MODAL -->
+<!-- SLIDING SKILLS MODAL -->
 <div id="skillsModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
