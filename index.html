@@ -34,12 +34,6 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- Far Right: Leave a Message Button (Opposite the Logo) -->
-        <a href="#contact" class="nav-message-btn" title="Leave a Message" aria-label="Leave a Message">
-            <i class="fas fa-envelope"></i>
-            <span class="message-btn-text">Message</span>
-        </a>
-
         <!-- Mobile Toggle Button -->
         <button class="mobile-menu-btn" aria-label="Open Menu">
             <i class="fas fa-bars"></i>
@@ -250,31 +244,12 @@
     </div>
 </section>
 
-<!-- FOOTER / CONTACT -->
+<!-- FOOTER / CONTACT (RESTORED TO ORIGINAL FORMAT) -->
 <footer id="contact" class="footer">
     <div class="container">
         <div class="section-title reveal-up">
             <h2>Let's Connect</h2>
-            <p>Have a project or opportunity? Send me a message below.</p>
-        </div>
-
-        <!-- SUPABASE CONTACT FORM -->
-        <div class="contact-form-container reveal-up">
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="senderName" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="senderEmail" placeholder="Your Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="senderMessage" rows="5" placeholder="Your Message..." required></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-                <p id="formStatus" class="form-status"></p>
-            </form>
+            <p>Have a project or opportunity? Connect with me directly through these platforms.</p>
         </div>
 
         <div class="contact-links reveal-up">
@@ -307,7 +282,6 @@
         <h2>Technical & Professional Skills</h2>
         
         <div class="modal-grid">
-            <!-- FULL-STACK DEVELOPMENT -->
             <div class="skill-category">
                 <h3>Full-Stack & Web Development</h3>
                 <div class="skill">Node.js</div>
@@ -322,7 +296,6 @@
                 <div class="skill">WordPress</div>
             </div>
 
-            <!-- API & INTEGRATION -->
             <div class="skill-category">
                 <h3>API & Integration</h3>
                 <div class="skill">REST APIs & Web Services</div>
@@ -331,7 +304,6 @@
                 <div class="skill">3rd-Party Integrations</div>
             </div>
 
-            <!-- DATABASES -->
             <div class="skill-category">
                 <h3>Databases & Storage</h3>
                 <div class="skill">PostgreSQL</div>
@@ -340,7 +312,6 @@
                 <div class="skill">SQL Scripting</div>
             </div>
 
-            <!-- SYSTEMS, NETWORKING & CLOUD -->
             <div class="skill-category">
                 <h3>Systems, Cloud & Networks</h3>
                 <div class="skill">Linux & Windows Server</div>
@@ -350,7 +321,6 @@
                 <div class="skill">System Monitoring & Admin</div>
             </div>
 
-            <!-- CYBERSECURITY & VAPT -->
             <div class="skill-category">
                 <h3>Cybersecurity</h3>
                 <div class="skill">Penetration Testing (VAPT)</div>
@@ -359,7 +329,6 @@
                 <div class="skill">Cloud Security</div>
             </div>
 
-            <!-- OPERATIONS, DATA & QA -->
             <div class="skill-category">
                 <h3>Operations, Data & QA</h3>
                 <div class="skill">Data Entry & Processing</div>
@@ -370,6 +339,71 @@
                 <div class="skill">Shopify Development</div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- ANIMATED FLOATING ACTION BUTTON -->
+<button class="floating-message-btn" id="floatingMsgBtn" title="Live Message" aria-label="Live Message">
+    <i class="fas fa-comments"></i>
+    <span class="btn-text">Message</span>
+</button>
+
+<!-- SLIDING CHAT SCREEN & BACKDROP -->
+<div class="chat-backdrop" id="chatBackdrop"></div>
+
+<div class="chat-drawer" id="chatDrawer">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <i class="fas fa-circle online-status"></i>
+            <div>
+                <h3>Chat with Kelvin</h3>
+                <p>Live Messaging Portal</p>
+            </div>
+        </div>
+        <button class="chat-close-btn" id="closeChatBtn">&times;</button>
+    </div>
+
+    <!-- AUTHENTICATION VIEW (Default) -->
+    <div class="chat-auth-container" id="chatAuthContainer">
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="loginTabBtn">Login</button>
+            <button class="auth-tab" id="signupTabBtn">Sign Up</button>
+        </div>
+
+        <form id="chatAuthForm" class="auth-form">
+            <div class="form-group" id="nameFieldGroup" style="display: none;">
+                <label for="chatUserName">Full Name</label>
+                <input type="text" id="chatUserName" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="chatUserEmail">Email Address</label>
+                <input type="email" id="chatUserEmail" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="chatUserPass">Password</label>
+                <input type="password" id="chatUserPass" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="auth-submit-btn" id="authSubmitBtn">Login to Chat</button>
+        </form>
+
+        <p class="auth-note">Sign in or register to start a real-time messaging session.</p>
+    </div>
+
+    <!-- LIVE CHAT VIEW (Shown after Auth) -->
+    <div class="chat-session-container" id="chatSessionContainer" style="display: none;">
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg system">
+                Welcome! Send a message directly to Kelvin's inbox.
+            </div>
+        </div>
+
+        <form id="chatMessageForm" class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type a message..." required autocomplete="off">
+            <button type="submit" class="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
     </div>
 </div>
 
