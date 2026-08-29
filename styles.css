@@ -29,42 +29,79 @@ body{
     max-width:1200px;
     margin:auto;
 }
-
 /* NAV */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(15,23,42,.95);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-    z-index:1000;
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, .95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
 }
 
-.logo{
-    font-size:1.5rem;
-    font-weight:800;
-    color:var(--primary);
+/* Container inside nav to align far-left and far-right elements */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Keeps logo on left and mobile button on right */
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
 .logo a {
-    color: inherit;         /* Inherits the parent text color */
-    text-decoration: none;  /* Removes default blue underline */
-    display: inline-block; /* Preserves sizing and click area */
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
 }
 
-nav ul{
-    display:flex;
-    gap:2rem;
-    list-style:none;
+/* Desktop Links */
+nav ul.desktop-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav a{
-    color:var(--secondary);
-    text-decoration:none;
+nav a {
+    color: var(--secondary);
+    text-decoration: none;
 }
 
-nav a:hover{
-    color:var(--primary);
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Far-Right Mobile Menu Icon */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto; /* Guarantees far-right push */
+    padding: 0.25rem;
+}
+
+/* Responsive Behavior */
+@media (max-width: 900px) {
+    nav ul.desktop-links {
+        display: none; /* Hide desktop links on mobile */
+    }
+
+    .mobile-menu-btn {
+        display: block; /* Show hamburger button on mobile */
+    }
 }
 
 /* HERO */
