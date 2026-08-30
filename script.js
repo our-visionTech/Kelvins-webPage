@@ -1,3 +1,5 @@
+import { GoogleGenAI } from '@google/genai';
+
 function openModal(){
     document.getElementById("skillsModal").classList.add("active");
 }
@@ -188,6 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (chatMessageForm) {
         chatMessageForm.addEventListener('submit', (e) => {
+            // Deferred to Gemini AI handler below
+            return;
+            
             e.preventDefault();
             const text = chatInput.value.trim();
             if (!text) return;
@@ -212,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-import { GoogleGenAI } from '@google/genai';
 
 // Initialize Gemini API
 // Replace 'YOUR_GEMINI_API_KEY' with your actual key from Google AI Studio
