@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+
 
 function openModal(){
     document.getElementById("skillsModal").classList.add("active");
