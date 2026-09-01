@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize Gemini API
 // Replace 'YOUR_GEMINI_API_KEY' with your actual key from Google AI Studio
-const ai = new GoogleGenAI({ apiKey: 'AQ.Ab8RN6KG7vUQ-qNq-4ztrl8bYqe-sEtprDCz3O6e6Qrc3tgI7g' });
+const ai = new GoogleGenAI({ apiKey: '' });
 
 /* =========================================================
    SYSTEM PROMPT (YOUR PORTFOLIO KNOWLEDGE BASE)
